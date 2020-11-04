@@ -105,11 +105,7 @@ def init_tcp_connection_engine(db_config):
             port=db_port,  # e.g. 3306
             database=db_name,  # e.g. "my-database-name"
         ),
-        # Use `**db_config` from the configuration examples to
-        # specify additional options here.
-        # [END cloud_sql_mysql_sqlalchemy_create_tcp]
         **db_config
-        # [START cloud_sql_mysql_sqlalchemy_create_tcp]
     )
     # [END cloud_sql_mysql_sqlalchemy_create_tcp]
 
@@ -141,11 +137,7 @@ def init_unix_connection_engine(db_config):
                     cloud_sql_connection_name)  # i.e "<PROJECT-NAME>:<INSTANCE-REGION>:<INSTANCE-NAME>"
             }
         ),
-        # Use `**db_config` from the configuration examples to
-        # specify additional options here.
-        # [END cloud_sql_mysql_sqlalchemy_create_socket]
         **db_config
-        # [START cloud_sql_mysql_sqlalchemy_create_socket]
     )
     # [END cloud_sql_mysql_sqlalchemy_create_socket]
 

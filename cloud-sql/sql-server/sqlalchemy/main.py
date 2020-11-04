@@ -121,11 +121,7 @@ def init_tcp_connection_engine(db_config):
             port=db_port,
             query={"driver": "ODBC Driver 17 for SQL Server"},
         ),
-        # Use `**db_config` from the configuration examples to
-        # specify additional options here.
-        # [START_EXCLUDE]
-        **db_config,
-        # [END_EXCLUDE]
+        **db_config
     )
     # [END cloud_sql_sqlserver_sqlalchemy_create_tcp]
     # [END cloud_sql_server_sqlalchemy_create_tcp]
