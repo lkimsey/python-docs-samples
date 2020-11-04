@@ -103,6 +103,10 @@ def init_tcp_connection_engine(db_config):
     host_args = db_host.split(":")
     db_hostname, db_port = host_args[0], int(host_args[1])
 
+    # SQL Server drivers don't account for this
+    if db_hostname == 'localhost':
+        db_hostname = '127.0.0.1'
+
     # The SQLAlchemy engine will help manage interactions, including automatically
     # managing a pool of connections to your database
     pool = sqlalchemy.create_engine(

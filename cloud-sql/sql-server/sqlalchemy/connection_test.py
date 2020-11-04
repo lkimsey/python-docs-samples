@@ -32,7 +32,7 @@ env_map = {
     'SQLSERVER_PASSWORD': 'DB_PASS',
     'SQLSERVER_DATABASE': 'DB_NAME',
     'SQLSERVER_HOST': 'DB_HOST',
-    'SQLSERVER_CLOUD_SQL_CONNECTION_NAME': 'CLOUD_SQL_CONNECTION_NAME',
+    'SQLSERVER_INSTANCE': 'CLOUD_SQL_CONNECTION_NAME',
 }
 
 
@@ -44,7 +44,7 @@ def tcp_db_connection():
 
 def _common_setup():
     try:
-        pool = main.init_tcp_connection_engine()
+        pool = main.init_connection_engine()
     except pyodbc.OperationalError as e:
         logger.warning(
             'Could not connect to the production database. '

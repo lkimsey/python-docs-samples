@@ -175,7 +175,6 @@ def create_tables():
 @app.route('/', methods=['GET'])
 def index():
     context = get_index_context()
-    print(context)
     return render_template('index.html', **context)
 
 def get_index_context():
