@@ -110,11 +110,13 @@ wget --quiet https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 \
      -O ${HOME}/cloud_sql_proxy && chmod +x ${HOME}/cloud_sql_proxy
 ${HOME}/cloud_sql_proxy -instances="${MYSQL_INSTANCE}"=tcp:3306,"${MYSQL_INSTANCE}" -dir "${HOME}" &>> \
        ${HOME}/cloud_sql_proxy.log &
+echo -e "\Cloud SQL proxy started for MySQL."
 ${HOME}/cloud_sql_proxy -instances="${POSTGRES_INSTANCE}"=tcp:5432,"${POSTGRES_INSTANCE}" -dir "${HOME}" &>> \
        ${HOME}/cloud_sql_proxy-postgres.log &
+echo -e "\Cloud SQL proxy started for Postgres."
 ${HOME}/cloud_sql_proxy -instances="${SQLSERVER_INSTANCE}"=tcp:1433 &>> \
        ${HOME}/cloud_sql_proxy-sqlserver.log &
-echo -e "\nCloud SQL proxy started."
+echo -e "\Cloud SQL proxy started for SQL Server."
 
 echo -e "\n******************** TESTING PROJECTS ********************"
 # Switch to 'fail at end' to allow all tests to complete before exiting.
