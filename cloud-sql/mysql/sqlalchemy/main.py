@@ -31,10 +31,10 @@ def init_connection_engine():
     # [START cloud_sql_mysql_sqlalchemy_timeout]
     # [START cloud_sql_mysql_sqlalchemy_lifetime]
     db_config = {
-    # [END cloud_sql_mysql_sqlalchemy_limit]
-    # [END cloud_sql_mysql_sqlalchemy_backoff]
-    # [END cloud_sql_mysql_sqlalchemy_timeout]
-    # [END cloud_sql_mysql_sqlalchemy_lifetime]
+        # [END cloud_sql_mysql_sqlalchemy_limit]
+        # [END cloud_sql_mysql_sqlalchemy_backoff]
+        # [END cloud_sql_mysql_sqlalchemy_timeout]
+        # [END cloud_sql_mysql_sqlalchemy_lifetime]
 
         # [START cloud_sql_mysql_sqlalchemy_limit]
         # Pool size is the maximum number of permanent connections to keep.
@@ -64,10 +64,10 @@ def init_connection_engine():
         "pool_recycle": 1800,  # 30 minutes
         # [END cloud_sql_mysql_sqlalchemy_lifetime]
 
-    # [START cloud_sql_mysql_sqlalchemy_limit]
-    # [START cloud_sql_mysql_sqlalchemy_backoff]
-    # [START cloud_sql_mysql_sqlalchemy_timeout]
-    # [START cloud_sql_mysql_sqlalchemy_lifetime]
+        # [START cloud_sql_mysql_sqlalchemy_limit]
+        # [START cloud_sql_mysql_sqlalchemy_backoff]
+        # [START cloud_sql_mysql_sqlalchemy_timeout]
+        # [START cloud_sql_mysql_sqlalchemy_lifetime]
     }
     # [END cloud_sql_mysql_sqlalchemy_limit]
     # [END cloud_sql_mysql_sqlalchemy_backoff]

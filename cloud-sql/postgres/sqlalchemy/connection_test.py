@@ -1,7 +1,7 @@
 from contextlib import contextmanager
 import logging
 import os
-from typing import Dict, List
+from typing import Dict
 
 import pg8000
 import pytest

@@ -29,6 +29,7 @@ app = Flask(__name__)
 
 logger = logging.getLogger()
 
+
 def init_connection_engine():
 
     # [START cloud_sql_postgres_sqlalchemy_limit]
@@ -36,10 +37,10 @@ def init_connection_engine():
     # [START cloud_sql_postgres_sqlalchemy_timeout]
     # [START cloud_sql_postgres_sqlalchemy_lifetime]
     db_config = {
-    # [END cloud_sql_postgres_sqlalchemy_limit]
-    # [END cloud_sql_postgres_sqlalchemy_backoff]
-    # [END cloud_sql_postgres_sqlalchemy_timeout]
-    # [END cloud_sql_postgres_sqlalchemy_lifetime]
+        # [END cloud_sql_postgres_sqlalchemy_limit]
+        # [END cloud_sql_postgres_sqlalchemy_backoff]
+        # [END cloud_sql_postgres_sqlalchemy_timeout]
+        # [END cloud_sql_postgres_sqlalchemy_lifetime]
 
         # [START cloud_sql_server_sqlalchemy_limit]
         # [START cloud_sql_sqlserver_sqlalchemy_limit]
@@ -75,10 +76,10 @@ def init_connection_engine():
         # [END cloud_sql_server_sqlalchemy_lifetime]
         'echo': True  # debug
 
-    # [START cloud_sql_postgres_sqlalchemy_limit]
-    # [START cloud_sql_postgres_sqlalchemy_backoff]
-    # [START cloud_sql_postgres_sqlalchemy_timeout]
-    # [START cloud_sql_postgres_sqlalchemy_lifetime]
+        # [START cloud_sql_postgres_sqlalchemy_limit]
+        # [START cloud_sql_postgres_sqlalchemy_backoff]
+        # [START cloud_sql_postgres_sqlalchemy_timeout]
+        # [START cloud_sql_postgres_sqlalchemy_lifetime]
     }
     # [END cloud_sql_postgres_sqlalchemy_limit]
     # [END cloud_sql_postgres_sqlalchemy_backoff]
