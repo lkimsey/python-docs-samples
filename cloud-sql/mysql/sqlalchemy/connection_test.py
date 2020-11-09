@@ -70,7 +70,7 @@ def _common_setup():
 
     with pool.connect() as conn:
         conn.execute(
-            f"CREATE TABLE IF NOT EXISTS {table_name} "
+            f"CREATE TABLE IF NOT EXISTS `{table_name}`"
             "( vote_id SERIAL NOT NULL, time_cast timestamp NOT NULL, "
             "candidate CHAR(6) NOT NULL, PRIMARY KEY (vote_id) );"
         )
@@ -78,7 +78,7 @@ def _common_setup():
     yield pool
 
     with pool.connect() as conn:
-        conn.execute(f"DROP TABLE IF EXISTS {table_name}")
+        conn.execute(f"DROP TABLE IF EXISTS `{table_name}`")
 
 
 @contextmanager
