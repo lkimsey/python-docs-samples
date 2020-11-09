@@ -26,16 +26,7 @@ logger = logging.getLogger()
 
 
 def init_connection_engine():
-    # [START cloud_sql_mysql_sqlalchemy_limit]
-    # [START cloud_sql_mysql_sqlalchemy_backoff]
-    # [START cloud_sql_mysql_sqlalchemy_timeout]
-    # [START cloud_sql_mysql_sqlalchemy_lifetime]
     db_config = {
-        # [END cloud_sql_mysql_sqlalchemy_limit]
-        # [END cloud_sql_mysql_sqlalchemy_backoff]
-        # [END cloud_sql_mysql_sqlalchemy_timeout]
-        # [END cloud_sql_mysql_sqlalchemy_lifetime]
-
         # [START cloud_sql_mysql_sqlalchemy_limit]
         # Pool size is the maximum number of permanent connections to keep.
         "pool_size": 5,
@@ -64,15 +55,7 @@ def init_connection_engine():
         "pool_recycle": 1800,  # 30 minutes
         # [END cloud_sql_mysql_sqlalchemy_lifetime]
 
-        # [START cloud_sql_mysql_sqlalchemy_limit]
-        # [START cloud_sql_mysql_sqlalchemy_backoff]
-        # [START cloud_sql_mysql_sqlalchemy_timeout]
-        # [START cloud_sql_mysql_sqlalchemy_lifetime]
     }
-    # [END cloud_sql_mysql_sqlalchemy_limit]
-    # [END cloud_sql_mysql_sqlalchemy_backoff]
-    # [END cloud_sql_mysql_sqlalchemy_timeout]
-    # [END cloud_sql_mysql_sqlalchemy_lifetime]
 
     if os.environ.get("DB_HOST"):
         return init_tcp_connection_engine(db_config)
@@ -144,9 +127,10 @@ def init_unix_connection_engine(db_config):
     return pool
 
 
-# The SQLAlchemy engine will help manage interactions, including automatically
-# managing a pool of connections to your database
-# global db
+# This global variable is declared with a value of `None`, instead of calling
+# `init_connection_engine()` immediately, to simplify testing. In general, it
+# is safe to initialize your database connection pool when your script starts
+# -- there is no need to wait for the first request.
 db = None
 
 

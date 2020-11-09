@@ -31,17 +31,7 @@ logger = logging.getLogger()
 
 
 def init_connection_engine():
-
-    # [START cloud_sql_postgres_sqlalchemy_limit]
-    # [START cloud_sql_postgres_sqlalchemy_backoff]
-    # [START cloud_sql_postgres_sqlalchemy_timeout]
-    # [START cloud_sql_postgres_sqlalchemy_lifetime]
     db_config = {
-        # [END cloud_sql_postgres_sqlalchemy_limit]
-        # [END cloud_sql_postgres_sqlalchemy_backoff]
-        # [END cloud_sql_postgres_sqlalchemy_timeout]
-        # [END cloud_sql_postgres_sqlalchemy_lifetime]
-
         # [START cloud_sql_server_sqlalchemy_limit]
         # [START cloud_sql_sqlserver_sqlalchemy_limit]
         # Pool size is the maximum number of permanent connections to keep.
@@ -52,12 +42,14 @@ def init_connection_engine():
         # a total of pool_size and max_overflow.
         # [END cloud_sql_sqlserver_sqlalchemy_limit]
         # [END cloud_sql_server_sqlalchemy_limit]
+
         # [START cloud_sql_server_sqlalchemy_backoff]
         # [START cloud_sql_sqlserver_sqlalchemy_backoff]
         # SQLAlchemy automatically uses delays between failed connection attempts,
         # but provides no arguments for configuration.
         # [END cloud_sql_sqlserver_sqlalchemy_backoff]
         # [END cloud_sql_server_sqlalchemy_backoff]
+
         # [START cloud_sql_server_sqlalchemy_timeout]
         # [START cloud_sql_sqlserver_sqlalchemy_timeout]
         # 'pool_timeout' is the maximum number of seconds to wait when retrieving a
@@ -66,6 +58,7 @@ def init_connection_engine():
         'pool_timeout': 30,  # 30 seconds
         # [END cloud_sql_sqlserver_sqlalchemy_timeout]
         # [END cloud_sql_server_sqlalchemy_timeout]
+
         # [START cloud_sql_server_sqlalchemy_lifetime]
         # [START cloud_sql_sqlserver_sqlalchemy_lifetime]
         # 'pool_recycle' is the maximum number of seconds a connection can persist.
@@ -74,17 +67,9 @@ def init_connection_engine():
         'pool_recycle': 1800,  # 30 minutes
         # [END cloud_sql_sqlserver_sqlalchemy_lifetime]
         # [END cloud_sql_server_sqlalchemy_lifetime]
-        'echo': True  # debug
 
-        # [START cloud_sql_postgres_sqlalchemy_limit]
-        # [START cloud_sql_postgres_sqlalchemy_backoff]
-        # [START cloud_sql_postgres_sqlalchemy_timeout]
-        # [START cloud_sql_postgres_sqlalchemy_lifetime]
+        'echo': False  # debug
     }
-    # [END cloud_sql_postgres_sqlalchemy_limit]
-    # [END cloud_sql_postgres_sqlalchemy_backoff]
-    # [END cloud_sql_postgres_sqlalchemy_timeout]
-    # [END cloud_sql_postgres_sqlalchemy_lifetime]
 
     return init_tcp_connection_engine(db_config)
 
@@ -130,6 +115,10 @@ def init_tcp_connection_engine(db_config):
     return pool
 
 
+# This global variable is declared with a value of `None`, instead of calling
+# `init_connection_engine()` immediately, to simplify testing. In general, it
+# is safe to initialize your database connection pool when your script starts
+# -- there is no need to wait for the first request.
 db = None
 
 
